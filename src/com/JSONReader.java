@@ -14,7 +14,7 @@ public class JSONReader {
     private JSONParser parser = new JSONParser();
 
     public void readJokes() {
-        try(FileReader reader = new FileReader("jokes.json"))
+        try(FileReader reader = new FileReader("JokeBot/jokes.json"))
         {
             Object jsonFile = parser.parse(reader);
 

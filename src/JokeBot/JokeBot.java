@@ -1,4 +1,6 @@
-package JokeBotApp;
+package JokeBot;
+import Bot.Bot;
+
 import java.util.Scanner;
 
 public class JokeBot extends Bot {

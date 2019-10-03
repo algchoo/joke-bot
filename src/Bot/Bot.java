@@ -1,4 +1,4 @@
-package JokeBotApp;
+package Bot;
 
 public abstract class Bot {
 
