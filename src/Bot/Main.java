@@ -9,12 +9,9 @@ public class Main {
 
         /* Run a function that starts the bot. */
         JokeBot Joker = new JokeBot();
-        SmiteQueueBot queueBot = new SmiteQueueBot();
 
         // Bot Says Hello
-//        System.out.println(Joker.sayHello());
-//        Joker.runBot();
-
-        queueBot.runBot();
+        System.out.println(Joker.sayHello());
+        Joker.runBot();
     }
 }
