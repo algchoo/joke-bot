@@ -1,7 +1,6 @@
 package Bot;
 
 import JokeBot.JokeBot;
-import SmiteQueueBot.SmiteQueueBot;
 
 public class Main {
 
