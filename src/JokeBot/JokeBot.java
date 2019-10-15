@@ -1,6 +1,6 @@
 package JokeBot;
 import Bot.Bot;
-
+import com.JSONReader;
 import java.util.Scanner;
 
 public class JokeBot extends Bot {
@@ -14,11 +14,10 @@ public class JokeBot extends Bot {
         // Holds users next keypress
         String keyPress = keyboardScanner.nextLine();
 
-        if (keyPress.equals("Y")) {
+        if (keyPress.equals("Y") || keyPress.equals("y")) {
             System.out.println(this.doAction());
         }
-
-        if (keyPress.equals("N")) {
+        else if (keyPress.equals("N") || keyPress.equals("n")) {
             System.out.println("Okay! Thanks anyway!");
             System.exit(0);
         }
@@ -33,6 +32,7 @@ public class JokeBot extends Bot {
     }
 
     private String tellJoke() {
-        return "Why are people like drums?\nHit them with a stick and they make a noise.";
+        JSONReader jokeReader = new JSONReader();
+        return jokeReader.readJokes();
     }
 }
