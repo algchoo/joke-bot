@@ -1,0 +1,12 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="Bot:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Bot_jar</output-path>
+    <root id="archive" name="Bot.jar">
+      <element id="module-output" name="Bot" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/json-simple-1.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/commons-exec-1.2.jar" path-in-jar="/" />
+      <element id="library" level="project" name="com.googlecode.json-simple:json-simple:1.1" />
+      <element id="library" level="project" name="org.apache.commons:commons-exec:1.2" />
+    </root>
+  </artifact>
+</component>
