@@ -16,6 +16,7 @@ RUN curl -s "https://get.sdkman.io" | bash &&\
 # Stage 2
 FROM centos:centos7
 RUN mkdir /app
-COPY --from=build /home/Bots/build/distributions/Bots.zip
-RUN unzip Bots.zip
-ENTRYPOINT ["/bin/bash","./app/Bots/bin/Bots"]
+RUN yum -y install unzip
+COPY --from=build /home/Bots/build/distributions/Bots.zip /app
+RUN unzip /app/Bots.zip
+ENTRYPOINT ["/bin/bash","/app/Bots/bin/Bots"]
