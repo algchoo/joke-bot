@@ -31,5 +31,9 @@ dependencies {
 
 application {
     // Define the main class for the application
-    mainClassName = 'main.java.Bots.Bot.Main'
+    mainClassName = 'Bot.Main'
+}
+
+run {
+    standardInput = System.in
 }

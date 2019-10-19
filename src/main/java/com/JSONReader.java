@@ -18,7 +18,7 @@ public class JSONReader {
     private JSONParser parser = new JSONParser();
 
     public String readJokes() {
-        try(FileReader reader = new FileReader("/home/algchoo/IdeaProjects/Bots/src/JokeBot/jokes.json"))
+        try(FileReader reader = new FileReader("/home/algchoo/IdeaProjects/Bots/src/main/java/com/jokes.json"))
         {
             ArrayList<String> categories = new ArrayList<>();
             categories.add("dadJokes");
