@@ -7,6 +7,7 @@ import org.json.simple.parser.ParseException;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.File;
 import java.io.IOException;
 
 import java.util.ArrayList;
@@ -17,8 +18,10 @@ public class JSONReader {
     // JSON Parser
     private JSONParser parser = new JSONParser();
 
+    File directory = new File("./");
+
     public String readJokes() {
-        try(FileReader reader = new FileReader("/home/algchoo/IdeaProjects/Bots/src/main/java/com/jokes.json"))
+        try(FileReader reader = new FileReader(directory.getPath() + "/src/main/java/com/jokes.json"))
         {
             ArrayList<String> categories = new ArrayList<>();
             categories.add("dadJokes");
