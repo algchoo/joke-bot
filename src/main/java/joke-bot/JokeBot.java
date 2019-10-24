@@ -16,6 +16,7 @@ public class JokeBot extends Bot {
 
         if (keyPress.equals("Y") || keyPress.equals("y")) {
             System.out.println(this.doAction());
+            this.runBot();
         }
         else if (keyPress.equals("N") || keyPress.equals("n")) {
             System.out.println("Okay! Thanks anyway!");
