@@ -21,9 +21,6 @@ public class JSONReader {
     File directory = new File("./");
 
     public String readJokes() {
-        
-        System.out.println(directory.getAbsolutePath());
-
         try(FileReader reader = new FileReader(directory.getPath() + "/jokes.json"))
         {
             ArrayList<String> categories = new ArrayList<>();
