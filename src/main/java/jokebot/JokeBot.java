@@ -5,6 +5,9 @@ import java.util.Scanner;
 
 public class JokeBot extends Bot {
 
+    // Counter for incorrect keypress
+    private int keyFailure = 0;
+
     @Override
     public void runBot() {
         // Scanner for user input
@@ -13,9 +16,6 @@ public class JokeBot extends Bot {
 
         // Holds users next keypress
         String keyPress = keyboardScanner.nextLine();
-
-        // Counter for incorrect keypress
-        int keyFailure = 0;
 
         if (keyPress.equals("Y") || keyPress.equals("y")) {
             System.out.println(this.doAction());
