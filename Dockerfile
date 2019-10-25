@@ -15,8 +15,9 @@ WORKDIR ./build/distributions/
 RUN unzip joke-bot.zip
 
 # Stage 2
-FROM openjdk:11
+FROM openjdk:11-jre-slim
 WORKDIR /app
+RUN apt-get update
 RUN apt-get -y install unzip
 COPY --from=build /home/joke-bot/build/distributions/joke-bot/lib/joke-bot.jar /app
 COPY --from=build /home/joke-bot/jokes.json /app
