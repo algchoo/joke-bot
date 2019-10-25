@@ -1,20 +1,22 @@
-FROM openjdk:11-alpine AS build
+FROM openjdk:11 AS build
 WORKDIR /home
 
 # Install Prerequisites
-#RUN yum -y install which git unzip zip
+RUN apt-get update
+RUN apt-get -y install git zip unzip
 
 # Install SDKMan and Gradle
-#RUN curl -s "https://get.sdkman.io" | bash
-#sdk install gradle
-#git clone https://github.com/algchoo/Bots.git 
-#cd Bots/
-#gradle build
+RUN curl -s "https://get.sdkman.io" | bash
+RUN /bin/bash -l -c 'sdk install gradle' 
+RUN git clone https://github.com/algchoo/joke-bot.git 
+WORKDIR joke-bot/
+RUN /bin/bash -l -c 'gradle build'
+WORKDIR ./build/distributions/
+#RUN unzip joke-bot.zip
 
 # Stage 2
 #FROM openjdk:11
 #RUN mkdir /app
-#RUN yum -y install unzip
-#COPY --from=build /home/Bots/build/distributions/Bots.zip /app
-#RUN unzip /app/Bots.zip
-#ENTRYPOINT ["/bin/bash","/app/Bots/bin/Bots"]
+#RUN apt-get -y install unzip
+#COPY --from=build /home/joke-bot/build/distributions/joke-bot /app
+#ENTRYPOINT ["/bin/bash","/app/joke-bot/bin/joke-bot"]

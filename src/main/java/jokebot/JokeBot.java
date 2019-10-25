@@ -1,5 +1,5 @@
-package JokeBot;
-import Bot.Bot;
+package jokebot;
+import bot.Bot;
 import com.JSONReader;
 import java.util.Scanner;
 

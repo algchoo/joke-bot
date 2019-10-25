@@ -1,6 +1,6 @@
-package Bot;
+package bot;
 
-import JokeBot.JokeBot;
+import jokebot.JokeBot;
 
 public class Main {
 
