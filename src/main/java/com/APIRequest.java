@@ -5,7 +5,7 @@ import java.net.HttpURLConnection;
 public class APIRequest {
 
 //    It will have a type (GET, POST)
-//    It will have a destination. Fortunately, this will always be the same because containers dude
+//    It will have a destination.
 //    There will be a payload or response from the API
 //    Use HttpUrlConnection
 
