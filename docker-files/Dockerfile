@@ -14,7 +14,7 @@ RUN /bin/bash -l -c 'gradle build'
 WORKDIR ./build/distributions/
 RUN unzip joke-bot.zip
 
-# Stage 2
+# Run the application
 FROM openjdk:11-jre-slim
 WORKDIR /app
 RUN apt-get update
