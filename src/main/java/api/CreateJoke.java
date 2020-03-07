@@ -1,8 +1,8 @@
-package com;
+package api;
 
 import java.net.HttpURLConnection;
 
-public class APIRequest {
+public class CreateJoke {
 
 //    It will have a type (GET, POST)
 //    It will have a destination.

@@ -1,6 +1,6 @@
 package jokebot;
 import bot.Bot;
-import com.JSONReader;
+import api.JSONReader;
 import java.util.Scanner;
 
 public class JokeBot extends Bot {
@@ -12,36 +12,60 @@ public class JokeBot extends Bot {
     public void runBot() {
         // Scanner for user input
         Scanner keyboardScanner = new Scanner(System.in);
-        System.out.println("Would you like to hear a joke? [ Y , N ]: ");
+
+        // Prints Banner to welcome user
+        System.out.println(" _     _  _______  ___      _______  _______  __   __  _______    _______  _______ \n" +
+                "| | _ | ||       ||   |    |       ||       ||  |_|  ||       |  |       ||       |\n" +
+                "| || || ||    ___||   |    |       ||   _   ||       ||    ___|  |_     _||   _   |\n" +
+                "|       ||   |___ |   |    |       ||  | |  ||       ||   |___     |   |  |  | |  |\n" +
+                "|       ||    ___||   |___ |      _||  |_|  ||       ||    ___|    |   |  |  |_|  |\n" +
+                "|   _   ||   |___ |       ||     |_ |       || ||_|| ||   |___     |   |  |       |\n" +
+                "|__| |__||_______||_______||_______||_______||_|   |_||_______|    |___|  |_______|\n" +
+                "     ___  _______  ___   _  _______  _______  _______  _______                     \n" +
+                "    |   ||       ||   | | ||       ||  _    ||       ||       |                    \n" +
+                "    |   ||   _   ||   |_| ||    ___|| |_|   ||   _   ||_     _|                    \n" +
+                "    |   ||  | |  ||      _||   |___ |       ||  | |  |  |   |                      \n" +
+                " ___|   ||  |_|  ||     |_ |    ___||  _   | |  |_|  |  |   |                      \n" +
+                "|       ||       ||    _  ||   |___ | |_|   ||       |  |   |                      \n" +
+                "|_______||_______||___| |_||_______||_______||_______|  |___|                      \n" +
+                "                                                                                   \n" +
+                "[1] Hear a joke                                                                    \n" +
+                "[2] Create a joke                                                                  \n" +
+                "[3] List saved jokes                                                               \n" +
+                "                                                                                   \n" +
+                "                                                                                   \n" +
+                "                                                                                   ");
 
         // Holds users next keypress
         String keyPress = keyboardScanner.nextLine();
 
-        if (keyPress.equals("Y") || keyPress.equals("y")) {
-            System.out.println(this.doAction());
-            this.runBot();
+        switch (keyPress) {
+            case "1" :
+                System.out.println(this.tellJoke());
+            case "2" :
+                // this.createJoke();
+                break;
+            case "3" :
+                // this.listJokes();
+                break;
+            default:
+                keyFailure++;
         }
-        else if (keyPress.equals("N") || keyPress.equals("n")) {
-            System.out.println("Okay! Thanks anyway!");
-            System.exit(0);
-        }
-        else {
-            keyFailure++;
-            switch (keyFailure) {
-                case 1 :
-                    System.out.println("\nThat is not the correct key!");
-                    this.runBot();
-                case 2 :
-                    System.out.println("\nHey! You pressed the wrong key again!");
-                    this.runBot();
-                case 3 :
-                    System.out.println("\nOkay then, now you're just doing it to see what happens...");
-                    System.out.println("\nJust press the Y or N key on your keyboard....please?");
-                    this.runBot();
-                case 4 :
-                    System.out.println(this.spongeBob());
-                    System.exit(0);
-            }
+
+        switch (keyFailure) {
+            case 1 :
+                System.out.println("\nThat is not the correct key!");
+                this.runBot();
+            case 2 :
+                System.out.println("\nHey! You pressed the wrong key again!");
+                this.runBot();
+            case 3 :
+                System.out.println("\nOkay then, now you're just doing it to see what happens...");
+                System.out.println("\nJust press the Y or N key on your keyboard....please?");
+                this.runBot();
+            case 4 :
+                System.out.println(this.spongeBob());
+                System.exit(0);
         }
     }
 
