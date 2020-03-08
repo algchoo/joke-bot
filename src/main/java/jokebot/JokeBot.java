@@ -8,12 +8,7 @@ public class JokeBot extends Bot {
     // Counter for incorrect keypress
     private int keyFailure = 0;
 
-    @Override
-    public void runBot() {
-        // Scanner for user input
-        Scanner keyboardScanner = new Scanner(System.in);
-
-        // Prints Banner to welcome user
+    public void titleScreen() {
         System.out.println(" _     _  _______  ___      _______  _______  __   __  _______    _______  _______ \n" +
                 "| | _ | ||       ||   |    |       ||       ||  |_|  ||       |  |       ||       |\n" +
                 "| || || ||    ___||   |    |       ||   _   ||       ||    ___|  |_     _||   _   |\n" +
@@ -29,19 +24,37 @@ public class JokeBot extends Bot {
                 "|       ||       ||    _  ||   |___ | |_|   ||       |  |   |                      \n" +
                 "|_______||_______||___| |_||_______||_______||_______|  |___|                      \n" +
                 "                                                                                   \n" +
-                "[1] Hear a joke                                                                    \n" +
-                "[2] Create a joke                                                                  \n" +
-                "[3] List saved jokes                                                               \n" +
                 "                                                                                   \n" +
                 "                                                                                   \n" +
                 "                                                                                   ");
+    }
+
+    @Override
+    public void runBot() {
+
+        System.out.println("[1] Hear a joke\n" +
+                "[2] Create a joke\n" +
+                "[3] List saved jokes");
+
+        // Scanner for user input
+        Scanner keyboardScanner = new Scanner(System.in);
 
         // Holds users next keypress
         String keyPress = keyboardScanner.nextLine();
 
         switch (keyPress) {
             case "1" :
-                System.out.println(this.tellJoke());
+                try {
+                    System.out.println(this.tellJoke());
+                    Thread.sleep(2000);
+                    this.runBot();
+                } catch (InterruptedException e) {
+                    return;
+                    // Something about printing to standerd error, maybe we log it?
+                } catch (Exception e) {
+                    return;
+                    // Probably just log it
+                }
             case "2" :
                 // this.createJoke();
                 break;
@@ -54,15 +67,27 @@ public class JokeBot extends Bot {
 
         switch (keyFailure) {
             case 1 :
-                System.out.println("\nThat is not the correct key!");
-                this.runBot();
+                try {
+                    System.out.println("\nThat is not the correct key!");
+                    Thread.sleep(2000);
+                    this.runBot();
+                } catch (InterruptedException e) { return; }
+                catch (Exception e) { return; }
             case 2 :
-                System.out.println("\nHey! You pressed the wrong key again!");
-                this.runBot();
+                try {
+                    System.out.println("\nHey! You pressed the wrong key again!");
+                    Thread.sleep(2000);
+                    this.runBot();
+                } catch (InterruptedException e) { return; }
+                catch (Exception e) { return; }
             case 3 :
-                System.out.println("\nOkay then, now you're just doing it to see what happens...");
-                System.out.println("\nJust press the Y or N key on your keyboard....please?");
-                this.runBot();
+                try {
+                    System.out.println("\nOkay then, now you're just doing it to see what happens...");
+                    System.out.println("\nJust press the Y or N key on your keyboard....please?");
+                    Thread.sleep(2000);
+                    this.runBot();
+                } catch (InterruptedException e) { return; }
+                catch (Exception e) { return; }
             case 4 :
                 System.out.println(this.spongeBob());
                 System.exit(0);

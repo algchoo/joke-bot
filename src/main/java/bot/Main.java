@@ -8,7 +8,7 @@ public class Main {
 
         JokeBot Joker = new JokeBot();
 
-        //System.out.println(Joker.sayHello());
+        Joker.titleScreen();
         Joker.runBot();
     }
 }
