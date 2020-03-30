@@ -1,7 +1,11 @@
 package jokebot;
 import bot.Bot;
-import api.JSONReader;
+import api.*;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
+import java.util.StringTokenizer;
 
 public class JokeBot extends Bot {
 
@@ -36,10 +40,7 @@ public class JokeBot extends Bot {
                 "[2] Create a joke\n" +
                 "[3] List saved jokes");
 
-        // Scanner for user input
         Scanner keyboardScanner = new Scanner(System.in);
-
-        // Holds users next keypress
         String keyPress = keyboardScanner.nextLine();
 
         switch (keyPress) {
@@ -50,14 +51,14 @@ public class JokeBot extends Bot {
                     this.runBot();
                 } catch (InterruptedException e) {
                     return;
-                    // Something about printing to standerd error, maybe we log it?
+                    // Something about printing to standard error, maybe we log it?
                 } catch (Exception e) {
                     return;
                     // Probably just log it
                 }
             case "2" :
-                // this.createJoke();
-                break;
+                this.saveJoke(createJoke());
+                this.runBot();
             case "3" :
                 // this.listJokes();
                 break;
@@ -97,6 +98,31 @@ public class JokeBot extends Bot {
     @Override
     public String doAction() {
         return tellJoke();
+    }
+
+    private void saveJoke(String s) {
+        System.out.println(s);
+    }
+
+    private String createJoke() {
+        // Prompt user for the setup
+        System.out.println("The setup: ");
+        List<String> userSetupInput = new ArrayList<>();
+        String setup = new String("");
+
+        Scanner scanner = new Scanner(System.in);
+        StringTokenizer st = new StringTokenizer(scanner.nextLine());
+
+        while (st.hasMoreElements()) {
+            userSetupInput.add(st.nextToken());
+        }
+
+        for (String s : userSetupInput) {
+            setup = setup.concat(s);
+        }
+
+        scanner.close();
+        return setup;
     }
 
     private String tellJoke() {
